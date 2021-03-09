@@ -30,10 +30,6 @@ public class Conta{
 
   public String sacar(double valorSaque, double limite){
    
-	  System.out.println(valorSaque);
-	  System.out.println(limite);
-	  System.out.println(saldo);
-	  
 	  if(saldo + limite >= valorSaque) {
 		  saldo = saldo - valorSaque;
 		  return "Saque realizado com sucesso!";

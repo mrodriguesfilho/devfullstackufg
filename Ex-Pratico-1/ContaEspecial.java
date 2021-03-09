@@ -5,7 +5,7 @@ public class ContaEspecial extends Conta{
 		this.limite = limite;
 	}
 
-private double limite;
+  private double limite;
 
   public double getLimite() {
     return limite;
@@ -13,14 +13,6 @@ private double limite;
   
   public void setLimite(double limite) {
     this.limite = limite;
-  }
-
-  protected boolean temSaldo(){
-    return false;
-  }
-
-  public boolean abrirConta(){
-    return false;
   }
 
 

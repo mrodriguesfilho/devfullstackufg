@@ -1,5 +1,4 @@
-import java.time.LocalDate;
-import java.util.*;
+import java.time.*;
 
 public class PessoaFisica extends Pessoa{
   private int cpf;
