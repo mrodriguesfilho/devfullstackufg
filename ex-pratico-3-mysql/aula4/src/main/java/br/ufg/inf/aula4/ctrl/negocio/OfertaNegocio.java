@@ -33,10 +33,10 @@ public class OfertaNegocio {
 		}
 		
 		public Oferta buscaPorId(Integer id) throws OfertaExection, ProfessorExection, DisciplinaExection {
-			Oferta oferta = new Oferta();
-			oferta.setProfessor(professorNegocio.buscaPorId(oferta.getProfessor().getIdProfessor()));
-			oferta.setDisciplina(disciplinaNegocio.buscaPorId(oferta.getDisciplina().getIdDisciplina()));
-			return oferta;
+		//Oferta oferta = new Oferta();
+		//oferta.setProfessor(professorNegocio.buscaPorId(oferta.getProfessor().getIdProfessor()));
+		//oferta.setDisciplina(disciplinaNegocio.buscaPorId(oferta.getDisciplina().getIdDisciplina()));
+			return dao.buscaPorId(id);
 		}
 		
 		
@@ -54,7 +54,12 @@ public class OfertaNegocio {
 		}
 		
 		private void validarOferta(Oferta oferta) throws OfertaExection {
-			
+			if (oferta.getProfessor() == null) {
+				throw new OfertaExection("É necessário vincular um professor à oferta.");
+			}
+      if (oferta.getDisciplina() == null) {
+				throw new OfertaExection("É necessário vincular uma disciplina à oferta.");
+			}
 
 		}
 }

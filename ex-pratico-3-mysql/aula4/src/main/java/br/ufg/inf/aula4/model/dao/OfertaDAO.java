@@ -25,7 +25,7 @@ public class OfertaDAO {
 		try {
 			Connection conn = DB.getConnection();
 			st = conn.prepareStatement(
-					"INSERT INTO tb_oferta (id_professor, id_disciplina, dt_inicio, dt_fim, dia, hora) VALUES (?, ?, ?, ?, ?, ?)",
+					"INSERT INTO tb_oferta " + "(id_professor, id_disciplina, dt_inicio, dt_fim, dia, hora)" + "VALUES (?, ?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 			
 			st.setInt(1, oferta.getProfessor().getIdProfessor());

@@ -4,9 +4,9 @@ import br.ufg.inf.aula4.ctrl.DisciplinaCtrl;
 import br.ufg.inf.aula4.ctrl.OfertaCtrl;
 import br.ufg.inf.aula4.ctrl.PessoaCtrl;
 import br.ufg.inf.aula4.ctrl.ProfessorCtrl;
-import br.ufg.inf.aula4.model.entities.Pessoa;
 import br.ufg.inf.aula4.ctrl.AlunoCtrl;
 import br.ufg.inf.aula4.ctrl.CursoCtrl;
+import br.ufg.inf.aula4.ctrl.MatriculaCtrl;
 
 public class aplication {
 
@@ -21,8 +21,9 @@ public class aplication {
 	//	testeApp.testeCrudPessoa(new PessoaCtrl());
 	//	testeApp.testeCrudProfessor(new ProfessorCtrl(), new PessoaCtrl());
 	//	testeApp.testeCrudOferta(new OfertaCtrl(), new DisciplinaCtrl(), new ProfessorCtrl());
-		testeApp.testeCrudAluno(new AlunoCtrl(), new PessoaCtrl(), new CursoCtrl());
-	}
+	//	testeApp.testeCrudAluno(new AlunoCtrl(), new PessoaCtrl(), new CursoCtrl());
+		testeApp.testeCrudMatricula(new MatriculaCtrl(), new AlunoCtrl(), new OfertaCtrl());
+}
 	
 	
 

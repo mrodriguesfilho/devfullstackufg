@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import br.ufg.inf.aula4.ctrl.DisciplinaCtrl;
+import br.ufg.inf.aula4.ctrl.MatriculaCtrl;
 import br.ufg.inf.aula4.ctrl.OfertaCtrl;
 import br.ufg.inf.aula4.ctrl.PessoaCtrl;
 import br.ufg.inf.aula4.ctrl.ProfessorCtrl;
@@ -17,6 +18,7 @@ import br.ufg.inf.aula4.model.entities.Pessoa;
 import br.ufg.inf.aula4.model.entities.Professor;
 import br.ufg.inf.aula4.model.entities.Curso;
 import br.ufg.inf.aula4.model.entities.Aluno;
+import br.ufg.inf.aula4.model.entities.Matricula;
 import br.ufg.inf.aula4.model.enums.Dia;
 import br.ufg.inf.aula4.model.enums.Escolaridade;
 
@@ -99,7 +101,7 @@ public class TesteApp {
 
 		System.out.println("--------------------------------------------------");
 		/* Buscar pessoa com o ID 1 */
-		System.out.println("Buscar pelo id 1: " + ctrl.buscaPorId(1));
+		System.out.println("Buscar pelo id 1: " + ctrl.buscaPorId(7));
 
 		System.out.println("--------------------------------------------------");
 		/* Alterado a pessoa */
@@ -126,7 +128,7 @@ public class TesteApp {
 		}
 		System.out.println("--------------------------------------------------");
 
-		Professor prof1 = new Professor(null, pessoaCtrl.buscaPorId(4), Escolaridade.get(4));
+		Professor prof1 = new Professor(null, pessoaCtrl.buscaPorId(7), Escolaridade.get(4));
 		Professor prof2 = new Professor(null, pessoaCtrl.buscaPorId(5), Escolaridade.get(2));
 
 		ctrl.inserir(prof1);
@@ -140,8 +142,8 @@ public class TesteApp {
 		}
 
 		System.out.println("--------------------------------------------------");
-		/* Buscar professor com o ID 1 */
-		System.out.println("Buscar pelo id 1: " + ctrl.buscaPorId(1));
+		/* Buscar professor com o ID 5 */
+		System.out.println("Buscar pelo id 5: " + ctrl.buscaPorId(5));
 
 		System.out.println("--------------------------------------------------");
 		/* Alterando o professor */
@@ -158,7 +160,6 @@ public class TesteApp {
 		}*/
 
 		System.out.println("--------------------------------------------------");
-		System.out.println(ctrl.buscaPorId(2));
 	}
 
 	public void testeCrudOferta(OfertaCtrl ctrl, DisciplinaCtrl disciplinaCtrl, ProfessorCtrl professorCtrl) {
@@ -173,10 +174,12 @@ public class TesteApp {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		Oferta ofe1 = new Oferta(null, professorCtrl.buscaPorId(2), disciplinaCtrl.buscaPorId(2), dt1, dt2, Dia.get(2),
-				"08:00");
-		ctrl.inserir(ofe1);
 
+		Oferta ofe1 = new Oferta(null, professorCtrl.buscaPorId(5), disciplinaCtrl.buscaPorId(7), dt1, dt2, Dia.get(2),
+				"08:00");
+
+		ctrl.inserir(ofe1);
+		
 		try {
 			dt1 = new SimpleDateFormat("yyyy-MM-dd").parse("2021-2-7");
 			dt2 = new SimpleDateFormat("yyyy-MM-dd").parse("2021-5-31");
@@ -184,9 +187,9 @@ public class TesteApp {
 			e.printStackTrace();
 		}
 
-		Oferta ofe2 = new Oferta(null, professorCtrl.buscaPorId(4), disciplinaCtrl.buscaPorId(6), dt1, dt2, Dia.get(6),
+		Oferta ofe2 = new Oferta(null, professorCtrl.buscaPorId(7), disciplinaCtrl.buscaPorId(10), dt1, dt2, Dia.get(6),
 				"19:00");
-		ctrl.inserir(ofe2);
+		ctrl.inserir(ofe2); 
 
 		System.out.println("--------------------------------------------------");
 
@@ -274,5 +277,40 @@ public class TesteApp {
 
 		System.out.println("--------------------------------------------------");
 		System.out.println(ctrl.buscaPorId(2));
+	}
+
+	public void testeCrudMatricula(MatriculaCtrl ctrl, AlunoCtrl alunoCtrl, OfertaCtrl ofertaCtrl) {
+
+		System.out.println("--------------------------------------------------");
+
+	//	Matricula mat1 = new Matricula(null, alunoCtrl.buscaPorId(1), ofertaCtrl.buscaPorId(12));
+	//	ctrl.inserir(mat1);
+
+		System.out.println("--------------------------------------------------");
+		/* Buscar todas as Matriculas */
+		System.out.println("Matricula Cadastradas");
+		for (Matricula dis : ctrl.buscaTodos()) {
+			System.out.println(dis);
+		}
+
+		System.out.println("--------------------------------------------------");
+		/* Buscar Matricula com o ID 1 */
+		System.out.println("Buscar pelo id 3: " + ctrl.buscaPorId(3));
+
+		System.out.println("--------------------------------------------------");
+		/* Alterando o Matricula */
+
+		//ctrl.alterar(mat1);
+
+		System.out.println("--------------------------------------------------");
+		/* Excluindo professor */
+	/*	ctrl.excluir(prof1.getIdProfessor());
+		System.out.println("Professores Cadastrados");
+		for (Professor dis : ctrl.buscaTodos()) {
+			System.out.println(dis);
+		}*/
+
+		System.out.println("--------------------------------------------------");
+		System.out.println(ctrl.buscaPorId(5));
 	}
 }
