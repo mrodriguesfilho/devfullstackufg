@@ -9,12 +9,14 @@ import br.ufg.inf.aula4.ctrl.DisciplinaCtrl;
 import br.ufg.inf.aula4.ctrl.OfertaCtrl;
 import br.ufg.inf.aula4.ctrl.PessoaCtrl;
 import br.ufg.inf.aula4.ctrl.ProfessorCtrl;
+import br.ufg.inf.aula4.ctrl.AlunoCtrl;
 import br.ufg.inf.aula4.ctrl.CursoCtrl;
 import br.ufg.inf.aula4.model.entities.Disciplina;
 import br.ufg.inf.aula4.model.entities.Oferta;
 import br.ufg.inf.aula4.model.entities.Pessoa;
 import br.ufg.inf.aula4.model.entities.Professor;
 import br.ufg.inf.aula4.model.entities.Curso;
+import br.ufg.inf.aula4.model.entities.Aluno;
 import br.ufg.inf.aula4.model.enums.Dia;
 import br.ufg.inf.aula4.model.enums.Escolaridade;
 
@@ -160,7 +162,7 @@ public class TesteApp {
 	}
 
 	public void testeCrudOferta(OfertaCtrl ctrl, DisciplinaCtrl disciplinaCtrl, ProfessorCtrl professorCtrl) {
-
+		
 		// Inserindo ofertas
 
 		Date dt1 = null;
@@ -225,6 +227,48 @@ public class TesteApp {
 	/*	ctrl.excluir(prof1.getIdProfessor());
 		System.out.println("Professores Cadastrados");
 		for (Professor dis : ctrl.buscaTodos()) {
+			System.out.println(dis);
+		}*/
+
+		System.out.println("--------------------------------------------------");
+		System.out.println(ctrl.buscaPorId(2));
+	}
+
+	@SuppressWarnings("deprecation")
+	public void testeCrudAluno(AlunoCtrl ctrl, PessoaCtrl pessoaCtrl, CursoCtrl cursoCtrl) {
+		for (Aluno dis : ctrl.buscaTodos()) {
+			System.out.println(dis);
+		}
+		System.out.println("--------------------------------------------------");
+
+		Aluno aluno1 = new Aluno(null, new Date(2016, 1, 1), true, pessoaCtrl.buscaPorId(5), cursoCtrl.buscaPorId(1));
+		Aluno aluno2 = new Aluno(null, new Date(2019, 1, 1), true, pessoaCtrl.buscaPorId(7), cursoCtrl.buscaPorId(2));
+		ctrl.inserir(aluno1);
+		ctrl.inserir(aluno2);
+
+		System.out.println("--------------------------------------------------");
+		/* Buscar todos os Alunos */
+		System.out.println("Alunos Cadastrados");
+		for (Aluno dis : ctrl.buscaTodos()) {
+			System.out.println(dis);
+		}
+
+		System.out.println("--------------------------------------------------");
+		/* Buscar Aluno com o ID 1 */
+		System.out.println("Buscar pelo id 1: " + ctrl.buscaPorId(1));
+
+		System.out.println("--------------------------------------------------");
+		/* Alterando o Aluno */
+
+		aluno2.setCurso(cursoCtrl.buscaPorId(1));;
+		aluno2.setDtInicio(new Date(2021, 1, 1));
+		ctrl.alterar(aluno2);
+
+		System.out.println("--------------------------------------------------");
+		/* Excluindo Aluno */
+	/*	ctrl.excluir(aluno1.getIdAluno());
+		System.out.println("Alunos Cadastrados");
+		for (Aluno dis : ctrl.buscaTodos()) {
 			System.out.println(dis);
 		}*/
 
