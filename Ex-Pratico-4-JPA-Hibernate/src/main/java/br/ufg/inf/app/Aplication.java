@@ -9,12 +9,14 @@ import br.ufg.inf.ctrl.DisciplinaCtrl;
 import br.ufg.inf.ctrl.OfertaCtrl;
 import br.ufg.inf.ctrl.PessoaCtrl;
 import br.ufg.inf.ctrl.ProfessorCtrl;
+import br.ufg.inf.ctrl.MatriculaCtrl;
 import br.ufg.inf.model.entities.Disciplina;
 import br.ufg.inf.model.entities.Oferta;
 import br.ufg.inf.model.entities.Pessoa;
 import br.ufg.inf.model.entities.Professor;
 import br.ufg.inf.model.entities.Curso;
 import br.ufg.inf.model.entities.Aluno;
+import br.ufg.inf.model.entities.Matricula;
 import br.ufg.inf.model.enums.Dia;
 import br.ufg.inf.model.enums.Escolaridade;
 
@@ -27,10 +29,32 @@ public class Aplication {
 		//testeProfessor();
 		//testeCurso();
 		//testeOferta();
-		testeAluno();
+		//testeAluno();
+		testeMatricula();
 		System.out.println("Concluindo");
 	}
 
+	public static void testeMatricula(){
+		try {
+			MatriculaCtrl matriculaCtrl = new MatriculaCtrl();
+			AlunoCtrl alunoCtrl = new AlunoCtrl();
+			OfertaCtrl ofertaCtrl = new OfertaCtrl();
+
+			Matricula m1 = new Matricula(null, alunoCtrl.buscaPorId(1), ofertaCtrl.buscaPorId(1));
+			Matricula m2 = new Matricula(null, alunoCtrl.buscaPorId(2), ofertaCtrl.buscaPorId(2));
+			Matricula m3 = new Matricula(null, alunoCtrl.buscaPorId(3), ofertaCtrl.buscaPorId(3));
+
+			matriculaCtrl.inserir(m1);
+			matriculaCtrl.inserir(m2);
+			matriculaCtrl.inserir(m3);
+
+			for( Matricula m : matriculaCtrl.buscaTodos()){
+				System.out.println(m);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	public static void testeAluno() {
 		try {
 			AlunoCtrl alunoCtrl = new AlunoCtrl();
