@@ -9,6 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import br.ufg.inf.ctrl.CursoCtrl;
 import br.ufg.inf.ctrl.DisciplinaCtrl;
 import br.ufg.inf.ctrl.OfertaCtrl;
 import br.ufg.inf.ctrl.PessoaCtrl;
@@ -17,6 +18,7 @@ import br.ufg.inf.model.entities.Disciplina;
 import br.ufg.inf.model.entities.Oferta;
 import br.ufg.inf.model.entities.Pessoa;
 import br.ufg.inf.model.entities.Professor;
+import br.ufg.inf.model.entities.Curso;
 import br.ufg.inf.model.enums.Dia;
 import br.ufg.inf.model.enums.Escolaridade;
 
@@ -25,12 +27,31 @@ public class Aplication {
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("Executando!!!");
-		testeOferta();
+		testeCurso();
 		System.out.println("Concluindo");
 	}
 	
+	public static void testeCurso(){
+		
+		try {
+			CursoCtrl cursoCtrl = new CursoCtrl();
+
+			Curso c1 = new Curso(null, "Software Engineering");
+			cursoCtrl.inserir(c1);
+			
+			Curso c2 = cursoCtrl.buscaPorId(1);
+			c2.setNmCurso("Computer Science");
+			cursoCtrl.alterar(c2);
+	
+			for(Curso c : cursoCtrl.buscaTodos() ){
+				System.out.println(c);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 	
 	public static void testeOferta() {
 		
@@ -183,7 +204,7 @@ public class Aplication {
 		EntityManager em = emf.createEntityManager();
 		
 		Disciplina disc1 = new Disciplina(null, "FullStack", 64);
-		Disciplina disc2 = new Disciplina(null, "Matemática", 88);
+		Disciplina disc2 = new Disciplina(null, "Matemï¿½tica", 88);
 		Disciplina disc3 = new Disciplina(null, "Java", 30);
 		Disciplina disc4 = new Disciplina(null, "TypeScript", 90);
 		//System.out.println("-------------------------");
