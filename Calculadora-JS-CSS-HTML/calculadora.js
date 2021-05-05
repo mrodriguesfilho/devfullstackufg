@@ -139,39 +139,15 @@ btResut.addEventListener('click', function () {
     case '+':
       soma();
       break;
-  }
-});
-
-btResut.addEventListener('click', function () {
-  concluido = true;
-  switch (op) {
     case '-':
       sub();
       break;
-  }
-});
-
-btResut.addEventListener('click', function () {
-  concluido = true;
-  switch (op) {
     case '*':
       mul();
       break;
-  }
-});
-
-btResut.addEventListener('click', function () {
-  concluido = true;
-  switch (op) {
     case '/':
       div();
       break;
-  }
-});
-
-btResut.addEventListener('click', function () {
-  concluido = true;
-  switch (op) {
     case '%':
       ponto();
       break;
