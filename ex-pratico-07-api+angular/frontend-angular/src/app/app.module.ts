@@ -40,7 +40,13 @@ import { ProfessorUpdateComponent } from './component/view/professor/professor-u
 import { OfertaUpdateComponent } from './component/view/oferta/oferta-update/oferta-update.component';
 import { CursoListComponent } from './component/view/curso/curso-list/curso-list.component';
 import { CursoFormComponent } from './component/view/curso/curso-form/curso-form.component';
-import { CursoUpdateComponent } from './component/view/curso/curso-udpate/disciplina-update.component';
+import { CursoUpdateComponent } from './component/view/curso/curso-udpate/curso-update.component';
+import { AlunoListComponent } from './component/view/aluno/aluno-list/aluno-list.component';
+import { AlunoFormComponent } from './component/view/aluno/aluno-form/aluno-form.component';
+import { AlunoUpdateComponent } from './component/view/aluno/aluno-update/aluno-update.component';
+import { MatriculaListComponent } from './component/view/matricula/matricula-list/matricula-list.component';
+import { MatriculaFormComponent } from './component/view/matricula/matricula-form/matricula-form.component';
+import { MatriculaUpdateComponent } from './component/view/matricula/matricula-update/matricula-update.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +72,12 @@ import { CursoUpdateComponent } from './component/view/curso/curso-udpate/discip
     CursoListComponent,
     CursoFormComponent,
     CursoUpdateComponent,
+    AlunoListComponent,
+    AlunoFormComponent,
+    AlunoUpdateComponent,
+    MatriculaListComponent,
+    MatriculaFormComponent,
+    MatriculaUpdateComponent,
   ],
   imports: [
     BrowserModule,

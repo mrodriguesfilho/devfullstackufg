@@ -15,7 +15,7 @@ import { Disciplina } from 'src/app/model/disciplina.model';
 })
 export class OfertaFormComponent implements OnInit {
 
-  titulo : string = "Cadastrar novo Professor";
+  titulo : string = "Cadastrar nova Oferta";
   oferta: Oferta = {
     disciplina: null,
     professor: null,

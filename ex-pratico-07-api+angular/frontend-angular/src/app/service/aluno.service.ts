@@ -1,4 +1,6 @@
-import { Pessoa } from './../model/pessoa.model';
+import { Aluno } from './../model/aluno.model';
+import { Pessoa } from '../model/pessoa.model';
+import { Curso } from '../model/curso.model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -7,9 +9,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
-export class PessoaService {
+export class AlunoService {
 
-  urlBase: string = "http://localhost:8080/pessoas/";
+  urlBase: string = "http://localhost:8080/alunos/";
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar) { }
@@ -28,32 +30,32 @@ export class PessoaService {
   // READ
     // FindAll
     
-  findAll(): Observable<Pessoa[]> {
-    return this.http.get<Pessoa[]>(this.urlBase);
+  findAll(): Observable<Aluno[]> {
+    return this.http.get<Aluno[]>(this.urlBase);
   } 
 // FindById
 
-  findById(id: string): Observable<Pessoa>{
+  findById(id: string): Observable<Aluno>{
     let url = `${this.urlBase}/${id}`;
-    return this.http.get<Pessoa>(url);
+    return this.http.get<Aluno>(url);
   }
 
   //CREATE
 
-  create(pessoa: Pessoa): Observable<Pessoa>{
-    return this.http.post<Pessoa>(this.urlBase, pessoa); 
+  create(aluno: Aluno): Observable<Aluno>{
+    return this.http.post<Aluno>(this.urlBase, aluno); 
   }
 
   // UPDATE
 
-  update(pessoa: Pessoa): Observable<Pessoa>{
-    return this.http.put<Pessoa>(this.urlBase, pessoa);
+  update(aluno: Aluno): Observable<Aluno>{
+    return this.http.put<Aluno>(this.urlBase, aluno);
   }
   
   // DELETE
 
-  delete(pessoa : Pessoa): Observable<Pessoa> {
-    let url = `${this.urlBase}/${pessoa.idPessoa}`
-    return this.http.delete<Pessoa>(url);
+  delete(aluno : Aluno): Observable<Aluno> {
+    let url = `${this.urlBase}/${aluno.idAluno}`
+    return this.http.delete<Aluno>(url);
   }
 }

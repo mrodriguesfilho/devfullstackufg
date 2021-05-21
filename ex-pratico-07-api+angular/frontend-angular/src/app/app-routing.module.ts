@@ -16,7 +16,14 @@ import { OfertaListComponent } from './component/view/oferta/oferta-list/oferta-
 import { OfertaFormComponent } from './component/view/oferta/oferta-form/oferta-form.component';
 import { CursoListComponent } from './component/view/curso/curso-list/curso-list.component';
 import { CursoFormComponent } from './component/view/curso/curso-form/curso-form.component';
-import { CursoUpdateComponent } from './component/view/curso/curso-udpate/disciplina-update.component';
+import { CursoUpdateComponent } from './component/view/curso/curso-udpate/curso-update.component';
+import { AlunoListComponent } from './component/view/aluno/aluno-list/aluno-list.component';
+import { AlunoFormComponent } from './component/view/aluno/aluno-form/aluno-form.component';
+import { AlunoUpdateComponent } from './component/view/aluno/aluno-update/aluno-update.component';
+import { MatriculaListComponent } from './component/view/matricula/matricula-list/matricula-list.component';
+import { MatriculaFormComponent } from './component/view/matricula/matricula-form/matricula-form.component';
+import { MatriculaUpdateComponent } from './component/view/matricula/matricula-update/matricula-update.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,6 +42,12 @@ const routes: Routes = [
   { path: 'curso/list', component: CursoListComponent },
   { path: 'curso/form', component: CursoFormComponent },
   { path: 'curso/form/:id', component: CursoUpdateComponent },
+  { path: 'aluno/list', component: AlunoListComponent },
+  { path: 'aluno/form', component: AlunoFormComponent },
+  { path: 'aluno/form/:id', component: AlunoUpdateComponent },
+  { path: 'matricula/list', component: MatriculaListComponent },
+  { path: 'matricula/form', component: MatriculaFormComponent },
+  { path: 'matricula/form/:id', component: MatriculaUpdateComponent },
 ];
 
 
